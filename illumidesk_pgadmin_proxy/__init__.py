@@ -8,7 +8,7 @@ import shutil
 
 def setup_pgadmin():
     # Make sure pgadmin is in $PATH
-    def _pgadmin_command(5050):
+    def _pgadmin_command():
         full_path = shutil.which('pgadmin4')
         if not full_path:
             raise FileNotFoundError('Can not find pgadmin executable in $PATH')
@@ -20,6 +20,7 @@ def setup_pgadmin():
         'port': 5050,
         'timeout': 60,
         'enabled': True,
+        'absolute_url': True,
         'launcher_entry': {
             'title': 'PG Admin',
             'icon_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', 'pgAdmin.svg')
